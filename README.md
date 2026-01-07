@@ -1,3 +1,12 @@
+Skowront's updates:
+- Modified dependencies to make this work (docker build didn't work)
+- Minor changes to code to make this build.
+- Minor changes to code to make this run generation.
+- Generated dataset with original repository's seed and added to this repository for handniess.
+
+
+### README FROM ORIGINAL REPO BELOW ###
+
 This repository contains code for sa-bAbI code generator.
 
 Contributors:
