@@ -77,7 +77,7 @@ run_parser () {
         script="$script && rm -r $tmpdir"
 
         if [ -n parser ]; then
-            DATA_DIR=$working_dir docker-compose run \
+            DATA_DIR=$working_dir docker compose run \
                 --rm tool_parser \
                 bash -c "$script" > /dev/null
         fi

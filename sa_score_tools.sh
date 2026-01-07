@@ -49,14 +49,14 @@ if [ -f "$working_dir/validation_set" ]; then
     validation_arg="--validation_set /mnt/data/validation_set"
 fi
 
-DATA_DIR=$working_dir docker-compose run --rm sababi bash -c "\
+DATA_DIR=$working_dir docker compose run --rm sababi bash -c "\
     python /sa_babi/score_tool_outputs.py $validation_arg \
     /mnt/data/manifest.json \
     /sa_babi/checkers.yaml \
     /mnt/data/alerts/*.csv > /mnt/data/tool_confusion_matrix.csv"
 
 
-DATA_DIR=$working_dir docker-compose run --rm sababi bash -c "\
+DATA_DIR=$working_dir docker compose run --rm sababi bash -c "\
     python /sa_babi/score_tool_outputs.py $validation_arg \
     --sound_only\
     /mnt/data/manifest.json \

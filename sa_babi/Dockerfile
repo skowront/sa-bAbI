@@ -36,6 +36,8 @@
 # 
 # DM18-0995
 # 
-FROM python:3.6.5-stretch
-RUN apt-get update && apt-get -y install python-pip && pip install pyyaml
+FROM python:3.9-slim-bookworm
+RUN apt-get update 
+RUN apt-get -y install python3-pip
+RUN pip3 install pyyaml
 COPY . /sa_babi

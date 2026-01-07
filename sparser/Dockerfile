@@ -36,9 +36,9 @@
 # 
 # DM18-0995
 # 
-FROM python:3.6.5-stretch
-RUN apt-get update \
-    && apt-get -y install parallel python-pip 
+FROM python:3.9-slim-bookworm
+RUN apt-get update 
+RUN apt-get -y install parallel
 COPY . /sparser
 WORKDIR /sparser
 RUN pip install -r requirements.txt && python setup.py install

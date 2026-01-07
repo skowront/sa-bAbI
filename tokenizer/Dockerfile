@@ -36,16 +36,17 @@
 # 
 # DM18-0995
 # 
-FROM debian:stretch as builder
-RUN apt-get update -y \
-    && apt-get install -y build-essential cmake unzip clang libclang-dev 
-COPY . /opt/src
-RUN mkdir /opt/build  \
-    && cd /opt/build \
-    && cmake /opt/src \
-    && make
+FROM debian:11 AS builder
 ENV PATH="/opt/build/bin:/opt/src/scripts:${PATH}"
+RUN apt-get update -y \
+    && apt-get install -y build-essential cmake unzip clang libclang-dev llvm-dev
+COPY . /opt/src
+RUN mkdir /opt/build 
+WORKDIR /opt/build 
+RUN cmake /opt/src 
+RUN make
+# CMD ["bin/sh"]
 
-FROM debian:stretch 
+FROM debian:11 
 RUN apt-get update && apt-get -y install parallel clang libclang-dev 
 COPY --from=builder /opt/build/bin/ /usr/bin/

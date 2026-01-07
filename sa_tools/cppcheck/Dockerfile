@@ -36,18 +36,18 @@
 # 
 # DM18-0995
 # 
-FROM debian:stretch as builder
-RUN cd opt \
-    && apt-get update \
-    && apt-get -y install python build-essential wget libpcre3-dev \
-    && wget --quiet https://github.com/danmar/cppcheck/archive/1.84.tar.gz \
-    && tar -xzf 1.84.tar.gz \
-    && cd cppcheck-1.84 \ 
-    && make SRCDIR=build PREFIX=/opt/build CFGDIR=/etc/cppcheck/cfg HAVE_RULES=yes \
+FROM debian:11 as builder
+WORKDIR opt
+RUN apt-get update 
+RUN apt-get -y install python build-essential wget libpcre3-dev 
+RUN wget --quiet https://github.com/danmar/cppcheck/archive/1.84.tar.gz
+RUN tar -xzf 1.84.tar.gz 
+WORKDIR /opt/cppcheck-1.84 
+RUN make SRCDIR=build PREFIX=/opt/build CFGDIR=/etc/cppcheck/cfg HAVE_RULES=yes \
             CXXFLAGS="-O2 -DNDEBUG -Wall -Wno-sign-compare -Wno-unused-function" \
             install 
 
-FROM debian:stretch 
+FROM debian:11 
 RUN apt-get update && apt-get -y install parallel python 
 COPY --from=builder /opt/build/bin/ /usr/bin/
 COPY --from=builder /etc/cppcheck/cfg /etc/cppcheck/cfg

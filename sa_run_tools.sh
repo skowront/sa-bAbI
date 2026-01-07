@@ -58,7 +58,7 @@ for service_name in "${@:2}"; do
     start_time=$(date +%s)
 
     mkdir -p $working_dir/$service_name
-    DATA_DIR=$working_dir docker-compose run \
+    DATA_DIR=$working_dir docker compose run \
         --rm $service_name \
         bash -c "$script /mnt/data/$service_name"
 

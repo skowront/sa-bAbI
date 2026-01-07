@@ -49,7 +49,7 @@ num_instances=$2
 SA_SEED="${SA_SEED:--1}"
 
 mkdir -p $working_dir/src
-DATA_DIR=$working_dir docker-compose run --rm sababi \
+DATA_DIR=$working_dir docker compose run --rm sababi \
     python /sa_babi/generate.py \
     /mnt/data/src \
     -seed $SA_SEED \

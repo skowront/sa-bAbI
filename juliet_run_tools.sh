@@ -59,10 +59,10 @@ mkdir -p $working_dir/alerts
 echo "Running cppcheck"
 mkdir -p $working_dir/cppcheck
 begin=$(date +%s)
-DATA_DIR=$working_dir docker-compose run --rm \
+DATA_DIR=$working_dir docker compose run --rm \
     -v $(pwd)/juliet:/juliet cppcheck \
     bash -c "python /juliet/cppcheck.py /mnt/data/src/C /mnt/data/cppcheck 121"
-DATA_DIR=$working_dir docker-compose run --rm tool_parser \
+DATA_DIR=$working_dir docker compose run --rm tool_parser \
     bash -c "find /mnt/data/cppcheck -type f | xargs sparser cppcheck_xml" \
     > $working_dir/alerts/cppcheck.csv
 end=$(date +%s)
@@ -71,10 +71,10 @@ echo Done, took: $(expr $end - $begin) seconds
 echo "Running clang_sa"
 mkdir -p $working_dir/clang_sa
 begin=$(date +%s)
-DATA_DIR=$working_dir docker-compose run --rm \
+DATA_DIR=$working_dir docker compose run --rm \
     -v $(pwd)/juliet:/juliet clang_sa \
     bash -c "python /juliet/clang_sa.py /mnt/data/src/C /mnt/data/clang_sa 121"
-DATA_DIR=$working_dir docker-compose run --rm tool_parser \
+DATA_DIR=$working_dir docker compose run --rm tool_parser \
     bash -c "find /mnt/data/clang_sa -type f | xargs sparser clang_sa_plist" \
     > $working_dir/alerts/clang_sa.csv
 end=$(date +%s)
@@ -83,16 +83,16 @@ echo Done, took: $(expr $end - $begin) seconds
 echo "Running frama-c"
 mkdir -p $working_dir/frama-c
 begin=$(date +%s)
-DATA_DIR=$working_dir docker-compose run --rm \
+DATA_DIR=$working_dir docker compose run --rm \
     -v $(pwd)/juliet:/juliet frama-c \
     bash -c "python /juliet/frama-c.py /mnt/data/src/C /mnt/data/frama-c 121"
-DATA_DIR=$working_dir docker-compose run --rm tool_parser \
+DATA_DIR=$working_dir docker compose run --rm tool_parser \
     bash -c "find /mnt/data/frama-c -type f | xargs sparser framac_warnings" \
     > $working_dir/alerts/frama-c.csv
 end=$(date +%s)
 echo Done, took: $(expr $end - $begin) seconds
 
-DATA_DIR=$working_dir docker-compose run --rm juliet \
+DATA_DIR=$working_dir docker compose run --rm juliet \
     bash -c "python /juliet/score_tool_outputs.py \
         /mnt/data/src/C/manifest.xml \
         /juliet/checkers.yaml \

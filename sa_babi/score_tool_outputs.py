@@ -118,7 +118,7 @@ def load_tags(defects_path, validation_set=None, sound_only=False):
 
 def load_checker_whitelist(whitelist_path):
     with open(whitelist_path, "r") as fid:
-        data = yaml.load(fid)
+        data = yaml.load(fid, Loader=yaml.SafeLoader)
     return data
 
 

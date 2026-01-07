@@ -36,8 +36,8 @@
 # 
 # DM18-0995
 # 
-FROM debian:stretch 
-RUN cd opt \
-    && apt-get update \
-    && apt-get -y install python frama-c-base parallel 
+FROM debian:11 
+RUN cd opt 
+RUN apt-get update 
+RUN apt-get -y install python frama-c-base parallel 
 COPY ./analyze_file.sh /usr/bin/ 

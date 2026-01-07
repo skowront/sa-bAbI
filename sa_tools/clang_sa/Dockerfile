@@ -36,7 +36,7 @@
 # 
 # DM18-0995
 # 
-FROM debian:stretch
-RUN apt-get update -y \
-    && apt-get install -y clang libfindbin-libs-perl parallel
+FROM debian:11
+RUN apt-get update -y 
+RUN apt-get install -y clang libfindbin-libs-perl parallel 
 COPY ./analyze_file.sh /usr/bin/ 

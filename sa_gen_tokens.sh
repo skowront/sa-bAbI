@@ -49,4 +49,4 @@ mkdir -p $working_dir/tokens
 script="cd /mnt/data/tokens/"
 script="$script && find /mnt/data/src -name '*.c'"
 script="$script | parallel --will-cite -X --ungroup tokenize {}"
-DATA_DIR=$working_dir docker-compose run --rm tokenize bash -c "$script"
+DATA_DIR=$working_dir docker compose run --rm tokenize bash -c "$script"
