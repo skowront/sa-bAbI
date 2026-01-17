@@ -1,0 +1,5 @@
+sparser.egg-info/PKG-INFO
+sparser.egg-info/SOURCES.txt
+sparser.egg-info/dependency_links.txt
+sparser.egg-info/entry_points.txt
+sparser.egg-info/top_level.txt

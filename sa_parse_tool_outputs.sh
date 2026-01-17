@@ -52,6 +52,7 @@ fi
 
 working_dir=$(realpath $1)
 export DATA_DIR=$working_dir
+echo $DATA_DIR
 
 run_parser () {
     parser=""
@@ -75,11 +76,11 @@ run_parser () {
         script="$script && ls | $parallel sparser $parser {}"
         script="$script && cat $tmpdir/*.par | sort | uniq > /mnt/data/alerts/${1}.csv"
         script="$script && rm -r $tmpdir"
-
+        echo $script
         if [ -n parser ]; then
             DATA_DIR=$working_dir docker compose run \
                 --rm tool_parser \
-                bash -c "$script" > /dev/null
+                bash -c "$script" > /dev/null 
         fi
     fi
 }

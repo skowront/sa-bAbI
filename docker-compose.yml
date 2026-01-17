@@ -46,3 +46,4 @@ services:
     build: ./sparser
     volumes:
       - "${DATA_DIR}:/mnt/data"
+      - ./sparser:/sparser

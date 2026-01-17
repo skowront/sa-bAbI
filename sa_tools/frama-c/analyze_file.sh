@@ -42,4 +42,4 @@ out_dir=$2
 
 name=$(basename $cfile)
 outfile="$out_dir/$name.frama-c.txt"
-frama-c -val $cfile | grep warning > $outfile
+frama-c -val $cfile > $outfile

@@ -89,7 +89,6 @@ class CppcheckXmlV2Parser(Parser):
         cppcheck_node = root.find("cppcheck")
         version = cppcheck_node.get("version")
         tool_info = ToolInfo(name="cppcheck", version=version)
-
         for error_node in root.iter("error"):
             diag = Diagnostic(tool_info=tool_info, kind=error_node.get("id"))
 

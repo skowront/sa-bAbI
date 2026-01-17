@@ -1,0 +1,4 @@
+docker run --rm -v sparser/sparser/famac.py:/sparser/sparser/famac.py sa-babi-tool_parser:latest
+
+
+docker compose run --rm -v "/home/ksriui906/Dokumenty/VulnerabilityDetectionBaseline/3rd-party-repositories/sa-babi/sparser:/sparser" tool_parser
