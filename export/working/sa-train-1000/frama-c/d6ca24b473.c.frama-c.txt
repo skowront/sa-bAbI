@@ -1,0 +1,7 @@
+[kernel] Warning: -val is a deprecated alias for option -eva. Please use -eva instead.
+[kernel] Parsing d6ca24b473.c (with preprocessing)
+[kernel] d6ca24b473.c:5: User Error: 
+  zero-length arrays only allowed for GCC/MSVC
+[kernel] User Error: stopping on file "d6ca24b473.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

@@ -1,0 +1,7 @@
+[kernel] Warning: -val is a deprecated alias for option -eva. Please use -eva instead.
+[kernel] Parsing 66f7426e5a.c (with preprocessing)
+[kernel] 66f7426e5a.c:16: User Error: 
+  zero-length arrays only allowed for GCC/MSVC
+[kernel] User Error: stopping on file "66f7426e5a.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

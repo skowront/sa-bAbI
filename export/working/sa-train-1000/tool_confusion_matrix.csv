@@ -1,0 +1,10 @@
+tool,kind,tp,tn,fp,fn
+clang_sa,cond,395,335,0,270
+clang_sa,taut,296,498,0,199
+clang_sa,all,691,833,0,469
+cppcheck,cond,323,302,33,342
+cppcheck,taut,473,498,0,22
+cppcheck,all,796,800,33,364
+frama-c,cond,549,335,0,116
+frama-c,taut,303,498,0,192
+frama-c,all,852,833,0,308

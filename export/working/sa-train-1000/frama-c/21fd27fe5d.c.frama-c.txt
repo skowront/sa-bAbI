@@ -1,0 +1,7 @@
+[kernel] Warning: -val is a deprecated alias for option -eva. Please use -eva instead.
+[kernel] Parsing 21fd27fe5d.c (with preprocessing)
+[kernel] 21fd27fe5d.c:5: User Error: 
+  zero-length arrays only allowed for GCC/MSVC
+[kernel] User Error: stopping on file "21fd27fe5d.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.

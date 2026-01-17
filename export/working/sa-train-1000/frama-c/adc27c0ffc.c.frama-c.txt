@@ -1,0 +1,7 @@
+[kernel] Warning: -val is a deprecated alias for option -eva. Please use -eva instead.
+[kernel] Parsing adc27c0ffc.c (with preprocessing)
+[kernel] adc27c0ffc.c:6: User Error: 
+  zero-length arrays only allowed for GCC/MSVC
+[kernel] User Error: stopping on file "adc27c0ffc.c" that has errors. Add '-kernel-msg-key pp'
+  for preprocessing command.
+[kernel] Frama-C aborted: invalid user input.
